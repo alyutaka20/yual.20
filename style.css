@@ -1,0 +1,357 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body { scroll-behavior: smooth; } 
+
+.grobal-nav{
+  display:flex;
+  justify-content:space-between;
+  background-color:rgb(231, 231, 231);
+  position: relative;
+}
+
+.head{
+  height:50px;
+  padding-top:10px;
+  padding-left:30px;
+  text-align:center;
+  background-color:rgb(231, 231, 231);
+}
+
+/* .nav-menu{
+  display:flex;
+  justify-content: space-between;
+} */
+
+.nav-menu ul{
+  display: flex;
+  justify-content: space-around;
+}
+
+.nav-menu  li{
+  height:70px;
+  width:110px;
+  list-style-type:none;
+}
+
+.nav-menu ul li a{
+  display:block;
+  height:70px;
+  width:110px;
+  text-align: center;
+  padding-top: 35px;
+}
+
+a{
+  text-decoration: none;
+}
+
+/* ホバーすると文字が下から上がってきて変わるアニメーション */
+.en{ 
+  display: block; 
+  position:absolute;
+  transition: 0.3s;
+  &::before {
+    content: attr(data-hover);
+    display: block;
+    position: absolute;
+    top:30%;
+    color: transparent;
+    text-align: center;
+    white-space: nowrap;
+    transition: 0.5s;
+  }
+  &:hover{
+    /* コメントアウトするとホバーでworksが消えなくなる↓ */
+    color: transparent;
+    transform: translateY(-40%);
+     
+    &::before {
+      color: #000;
+    }
+  }
+} */
+
+  /* コンタクトのcss */
+.contact{
+  height:300px;
+  width:auto;
+  
+}
+
+/* リンククリックしたあとのリンクの色 */
+a:visited{
+ color: black;
+}
+/*トップイメージ*/
+.top-imgs{
+  position:relative;
+  height:650px;
+}
+
+.item1{
+  position:absolute;
+  top:0;
+  left:0;
+  height:100%;
+  width:100%;
+  opacity:0;
+  animation:fadePic;
+  animation-duration:10s;
+  animation-iteration-count:infinite;
+  animation-timing-function:ease;
+}
+
+@keyframes fadePic{
+  0%{
+    opacity:0;
+  }
+  50%{
+    opacity:1;
+  }
+  100%{
+    opacity:0;
+  }
+}
+
+.item1:nth-of-type(1) {
+  animation-delay: 0s;
+}
+.item1:nth-of-type(2) {
+  animation-delay: 5s;
+}
+
+/*トップイメージここまで*/
+
+/* ページ内リンクの位置調整 */
+
+a.aa{
+    display: block;
+    padding-top: 200px;
+    margin-top: -200px;
+}
+
+li a.anchor{
+    display: block;
+    padding-top: 70px;
+    margin-top: -70px;
+}
+
+/* ページ内リンクの位置調整ここまで*/
+
+.aboutH,
+.contactH{
+  height:70px;
+  width:auto;
+  position:relative;
+  background-color:rgb(231, 231, 231);
+}
+
+#slide-message {
+  display:none;
+
+  /* 起点の指定 */
+  position:absolute;
+  left:50%; 
+  /* 起点の指定終了 */
+  animation: animations ease 3s forwards;
+  padding-top:15px;
+}
+
+@keyframes animations{
+  0%{
+    opacity:0;
+    transform:translateX(-1000px);
+  }
+  30%{
+    opacity:0.2;
+  }
+  70%{
+    opacity:0.5;
+    transform:translateX(-50%);
+  }
+  100%{
+    opacity:1;
+    transform:translateX(-50%);
+  }
+  /* フェードインが止まってからさらにオパシティーが解けていくアニメ。
+  transformを2箇所同じ数値指定しないと100%になった時また右に行く */
+}
+
+.works{
+  display:flex;
+  position:relative;
+  justify-content: space-around;
+  height:300px;
+  width:100%;
+}
+
+#worksItem{
+  text-align:center;
+  margin-top:20px;
+  height:300px;
+  width:20vw;
+}
+
+.left {
+  animation: animation1 ease 3s forwards;
+  white-space: nowrap;
+  opacity: 0.6;
+  transition: 2s all ease;
+}
+
+/* @keyframes animation1{
+  0%{
+    opacity:0;
+    transform:translateX(-100%);
+  }
+
+  100%{
+    opacity:0.7;
+    transform:translateX();
+  }
+} */
+
+.center1 {
+  animation: animation2 ease 3s forwards;
+  white-space: nowrap;
+  opacity: 0.6;
+  transition: 2s all ease;
+}
+
+/* @keyframes animation2{
+  0%{
+    opacity:0;
+    transform:translateX(-300%);
+  }
+
+  100%{
+    opacity:0.7;
+    transform:translateX();
+  }
+} */
+
+.center2 {
+  animation: animation3 ease 3s forwards;
+  white-space: nowrap;
+  opacity: 0.6;
+  transition: 2s all ease;
+}
+
+/* @keyframes animation3{
+  0%{
+    opacity:0;
+    transform:translateX(-400%);
+  }
+
+  100%{
+    opacity:0.7;
+    transform:translateX();
+  }
+} */
+
+.right {
+  animation: animation4 ease 3s forwards;
+  white-space: nowrap;
+  opacity: 0.6;
+  transition: 2s all ease;
+}
+
+/* @keyframes animation4{
+  0%{
+    opacity:0;
+    transform:translateX(-500%);
+  }
+
+  100%{
+    opacity:0.7;
+    transform:translateX();
+  }
+} */
+
+/* クラスネームで取得した要素に、イベントリスナーでmouseover,mouseoutを指定。
+mouseover(ホバーした時)にactiveクラスが適用され、下記で指定した動作で要素が動くようになる。 */
+
+/* .active{
+  transform:scale(1.1,1.1);
+} */
+
+/* ロゴのアニメーション、ホバー時に拡大するアニメーションの設定。
+スライドインを併用ができない為、スライドインはオフにしてある。 */
+.left:hover,
+.center1:hover,
+.center2:hover,
+.right:hover{
+  transform: scale(1.1,1.1);
+  transition: 1s ease all;
+  opacity: 1.0;
+}
+
+
+
+/* ロゴのアニメーションここまで */
+
+/* コンタクト題名のcss */
+
+#slide-message2 {
+  display:none;
+
+  /* 起点の指定 */
+  position:absolute;
+  left:50%; 
+  /* 起点の指定終了 */
+  animation: animations ease 3s forwards;
+  padding-top:15px;
+}
+
+/* メールフォームのcss */
+
+#contact{
+  max-width: 600px;
+  margin: 30px auto;
+  flex-wrap: wrap;
+}
+
+label{
+  display: inline-block;
+}
+
+.textbox{
+  border: none;
+  width: 500px;
+  margin:  20px auto;
+  font-size: 18px;
+  border-bottom: 2px solid black;
+  outline: none;
+}
+
+.textb{
+  border: none;
+  width: 500px;
+  margin: auto;
+  font-size: 18px;
+  border-bottom: 2px solid black;
+  outline: none;
+} 
+
+::-webkit-resizer{
+  display: none;
+}
+
+.first{
+  margin-right: 15px;
+}
+
+.button{
+  display: block;
+  width: 200px;
+  height: 50px;
+  background-color:black;
+  border: none;
+  color: white;
+  margin: 30px auto;
+}
+
