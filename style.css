@@ -43,7 +43,7 @@ html, body { scroll-behavior: smooth; }
   width:110px;
   text-align: center;
   padding-top: 35px;
-  color:black;
+  color:black;　!important!
 }
 
 a{
