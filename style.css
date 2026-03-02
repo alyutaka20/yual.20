@@ -43,11 +43,11 @@ html, body { scroll-behavior: smooth; }
   width:110px;
   text-align: center;
   padding-top: 35px;
+  color:black;
 }
 
 a{
   text-decoration: none;
-  color:red;
 }
 
 /* ホバーすると文字が下から上がってきて変わるアニメーション */
